@@ -14,6 +14,8 @@ public class Job {
     private String description;
     private String minSalary;
     private String maxSalary;
+    @ManyToOne
+    private Company company;
 
     // Constructor
     // we need when we work with JPA
@@ -76,6 +78,15 @@ public class Job {
     public void setMaxSalary(String maxSalary) {
         this.maxSalary = maxSalary;
     }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
 }
 
 
