@@ -17,6 +17,8 @@ public class Company {
     @JsonIgnore
     @OneToMany(mappedBy = "company") // that's means one company has many jobs
     private List<Job> jobs;
+    @OneToMany(mappedBy = "company")
+    private List<Review> reviews;
     // Constructor
     public Company() {
     }
@@ -58,5 +60,13 @@ public class Company {
 
     public void setJobs(List<Job> jobs) {
         this.jobs = jobs;
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
     }
 }
