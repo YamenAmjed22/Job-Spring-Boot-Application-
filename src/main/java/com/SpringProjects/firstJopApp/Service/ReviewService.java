@@ -59,9 +59,11 @@ public class ReviewService {
         Company company = companyService.getCompanyById(companyId);
         if (company!=null && reviewRepo.existsById(reviewId)){
             Review review = reviewRepo.findById(reviewId).orElse(null);
+
             Company company1 = review.getCompany();
             company1.getReviews().remove(review);
             review.setCompany(null);
+
             companyService.updateCompany(companyId , company1);
             reviewRepo.deleteById(reviewId);
             return  true ;
